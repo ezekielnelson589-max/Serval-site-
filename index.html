@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serval Dynamics | High-Performance Automotive Infrastructure</title>
+    <style>
+        /* Radiant High-Performance Palette: Deep Black, Bright Silver, Electric Blue, & Vibrant Red */
+        :root {
+            --bg-absolute: #05070a;
+            --bg-surface: #0f131a;
+            --bg-card: #171d26;
+            --bg-card-hover: #1e2633;
+            
+            --silver-bright: #f1f3f5;
+            --silver-metallic: #d1d5db;
+            --silver-muted: #9ca3af;
+            
+            --electric-blue: #2563eb;
+            --electric-glow: #3b82f6;
+            --vibrant-red: #dc2626;
+            --vibrant-red-hover: #b91c1c;
+            
+            --pure-white: #ffffff;
+            --border-metallic: #2e3748;
+            --border-radiant: #3b82f6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-absolute);
+            color: var(--silver-bright);
+            line-height: 1.6;
+            padding-bottom: 90px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Radiant Navigation Header */
+        header {
+            border-bottom: 2px solid var(--electric-blue);
+            background-color: rgba(15, 19, 26, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.15);
+        }
+
+        .nav-layout {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .brand-logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--pure-white);
+            text-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+        }
+
+        .brand-logo span {
+            color: var(--vibrant-red);
+            text-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+        }
+
+        .tag-badge {
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            padding: 6px 16px;
+            border: 1px solid var(--vibrant-red);
+            color: var(--pure-white);
+            background: linear-gradient(135deg, var(--vibrant-red) 0%, #7f1d1d 100%);
+            text-transform: uppercase;
+            box-shadow: 0 0 10px rgba(220, 38, 38, 0.3);
+        }
+
+        /* Dynamic Hero Layout */
+        .hero-split {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--border-metallic);
+            background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.12) 0%, transparent 60%),
+                        radial-gradient(circle at bottom left, rgba(220, 38, 38, 0.08) 0%, transparent 60%);
+        }
+
+        @media (min-width: 768px) {
+            .hero-split {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .hero-left { width: 55%; text-align: left; }
+            .hero-right { width: 40%; }
+        }
+
+        .hero-left h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            color: var(--pure-white);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero-left h1 span.blue-text { color: var(--electric-glow); }
+        .hero-left h1 span.red-text { color: var(--vibrant-red); }
+
+        .hero-left p {
+            font-size: 1.15rem;
+            color: var(--silver-metallic);
+        }
+
+        .hero-banner-frame {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            border: 2px solid var(--electric-blue);
+            position: relative;
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+        }
+
+        .hero-banner-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9) contrast(1.1); /* Retaining original full image colors */
+        }
+
+        /* Radiant Section Headings */
+        .section-headline {
+            margin: 5rem 0 2.5rem 0;
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--pure-white);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-headline::before {
+            content: '';
+            width: 12px;
+            height: 24px;
+            background-color: var(--vibrant-red);
+            display: inline-block;
+            box-shadow: 0 0 8px var(--vibrant-red);
+        }
+
+        .section-headline::after {
+            content: '';
+            flex-grow: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--electric-blue) 0%, transparent 100%);
+        }
+
+        /* Vision & Goals Visionary Box */
+        .vision-container {
+            background-color: var(--bg-surface);
+            border-left: 4px solid var(--electric-blue);
+            border-right: 4px solid var(--vibrant-red);
+            padding: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .vision-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .vision-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .vision-block h3 {
+            font-size: 1.4rem;
+            color: var(--pure-white);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .vision-block p {
+            color: var(--silver-metallic);
+            font-size: 1rem;
+        }
+
+        /* Strategic Service Channel Rows */
+        .service-row-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .service-row-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-metallic);
+            border-left: 4px solid var(--electric-blue);
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            transition: all 0.2s ease-in-out;
+        }
+
+        @media (min-width: 768px) {
+            .service-row-card {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .src-info { width: 65%; }
+            .src-metrics { width: 30%; text-align: right; border-left: 1px solid var(--border-metallic); padding-left: 1.5rem; }
+        }
+
+        .service-row-card:hover {
+            border-color: var(--electric-glow);
+            border-left-color: var(--vibrant-red);
+            background-color: var(--bg-card-hover);
+            transform: scale(1.01);
+        }
+
+        .src-info h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--pure-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .src-info p {
+            color: var(--silver-metallic);
+            font-size: 0.95rem;
+        }
+
+        .metric-badge {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--vibrant-red);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+
+        .metric-sub {
+            font-size: 0.8rem;
+            color: var(--silver-muted);
+        }
+
+        /* Supported Manufacturer Matrix */
+        .brand-showcase {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-metallic);
+            padding: 3rem 2rem;
+        }
+
+        .brand-showcase p {
+            color: var(--silver-metallic);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .brand-logo-matrix {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        @media (min-width: 480px) { .brand-logo-matrix { grid-template-columns: repeat(3, 1fr); } }
+        @media (min-width: 768px) { .brand-logo-matrix { grid-template-columns: repeat(4, 1fr); } }
+        @media (min-width: 1024px) { .brand-logo-matrix { grid-template-columns: repeat(6, 1fr); } }
+
+        .matrix-item {
+            border: 1px solid var(--border-metallic);
+            padding: 1.5rem 1rem;
+            text-align: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: var(--silver-metallic);
+            background-color: var(--bg-absolute);
+            transition: all 0.2s ease;
+        }
+
+        .matrix-item:hover {
+            border-color: var(--electric-blue);
+            color: var(--pure-white);
+            background-color: var(--bg-card);
+            box-shadow: 0 0 10px rgba(37, 99, 235, 0.2);
+        }
+
+        .matrix-item img {
+            height: 35px;
+            display: block;
+            margin: 0 auto 10px auto;
+            /* Retaining natural image colors perfectly on hover */
+            filter: grayscale(0) brightness(1);
+            transition: transform 0.2s ease;
+        }
+
+        .matrix-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Master Sourcing Form & Help Desk Portal (Two Columns) */
+        .portal-grid-split {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 900px) {
+            .portal-grid-split { grid-template-columns: 3fr 2fr; }
+        }
+
+        .portal-wrapper {
+            background-color: var(--bg-surface);
+            border: 2px solid var(--electric-blue);
+            padding: 3rem 2rem;
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.1);
+        }
+
+        .help-desk-wrapper {
+            background-color: var(--bg-surface);
+            border: 2px solid var(--vibrant-red);
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.1);
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 600px) {
+            .input-row.dual { grid-template-columns: repeat(2, 1fr); }
+            .input-row.triple { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .input-block {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-block label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+            color: var(--silver-bright);
+        }
+
+        .input-block input,
+        .input-block select,
+        .input-block textarea {
+            background-color: var(--bg-absolute);
+            border: 1px solid var(--border-metallic);
+            padding: 1rem;
+            color: var(--silver-bright);
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .input-block input:focus,
+        .input-block select:focus,
+        .input-block textarea:focus {
+            outline: none;
+            border-color: var(--electric-glow);
+        }
+
+        .btn-radiant {
+            background: linear-gradient(135deg, var(--electric-blue) 0%, #1d4ed8 100%);
+            color: var(--pure-white);
+            border: none;
+            padding: 1.2rem;
+            font-size: 0.95rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-radiant:hover {
+            background: linear-gradient(135deg, var(--electric-glow) 0%, var(--electric-blue) 100%);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.5);
+        }
+
+        .help-desk-info h3 {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            color: var(--pure-white);
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .help-desk-info p {
+            color: var(--silver-metallic);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ticket-channel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-metallic);
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .ticket-channel h5 {
+            color: var(--vibrant-red);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-bottom: 0.2rem;
+        }
+
+        .ticket-channel p {
+            color: var(--silver-bright);
+            font-size: 1rem;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* Highly Informative FAQ Trust Section */
+        .faq-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .faq-card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-metallic);
+            padding: 2rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .faq-card:hover {
+            border-color: var(--vibrant-red);
+        }
+
+        .faq-card h4 {
+            font-size: 1.15rem;
+            color: var(--pure-white);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            display: flex;
+            gap: 10px;
+        }
+
+        .faq-card h4 span { color: var(--vibrant-red); }
+
+        .faq-card p {
+            color: var(--silver-metallic);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Infrastructure Terminal Footer */
+        footer {
+            border-top: 2px solid var(--vibrant-red);
+            background-color: var(--bg-surface);
+            padding: 5rem 0 3rem 0;
+            margin-top: 6rem;
+        }
+
+        .footer-columns {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-columns { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .footer-column-block h4 {
+            font-size: 0.95rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.5rem;
+            color: var(--pure-white);
+        }
+
+        .footer-column-block p,
+        .footer-column-block address {
+            font-size: 0.9rem;
+            color: var(--silver-metallic);
+            font-style: normal;
+            line-height: 1.7;
+        }
+
+        .footer-base {
+            border-top: 1px solid var(--border-metallic);
+            padding-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-base { flex-direction: row; }
+        }
+
+        .copyright-tag {
+            font-size: 0.8rem;
+            color: var(--silver-muted);
+        }
+
+        /* Fixed Tactile Communication Node */
+        .comm-node-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--bg-absolute);
+            border-top: 1px solid var(--border-metallic);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            z-index: 2000;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
+        }
+
+        .node-link {
+            text-align: center;
+            padding: 1.3rem;
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-transform: uppercase;
+        }
+
+        .node-secondary {
+            background-color: #128c7e;
+            color: var(--pure-white);
+        }
+
+        .node-primary {
+            background: linear-gradient(135deg, var(--vibrant-red) 0%, #991b1b 100%);
+            color: var(--pure-white);
+        }
+
+        .node-primary:hover {
+            background: linear-gradient(135deg, #ef4444 0%, var(--vibrant-red) 100%);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Structure -->
+    <header>
+        <div class="container nav-layout">
+            <div class="brand-logo">Serval <span>Dynamics</span></div>
+            <div class="tag-badge">High-Velocity Sourcing</div>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- Minimalist Split Hero Layout -->
+        <section class="hero-split">
+            <div class="hero-left">
+                <h1>Independent <span class="blue-text">Auto Tech</span> Sourcing & <span class="red-text">Mechatronics</span></h1>
+                <p>Establishing raw, uncompromised component pipelines directly from international manufacturing hubs across China, North America, and Europe directly to domestic workshops, retail dealers, and fleets.</p>
+            </div>
+            <div class="hero-right">
+                <div class="hero-banner-frame">
+                    <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1200&auto=format&fit=crop" alt="High-End Auto Diagnostic Setup">
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Vision and Goals Section -->
+        <div class="section-headline">Corporate Blueprint</div>
+        <section class="vision-container">
+            <div class="vision-grid">
+                <div class="vision-block">
+                    <h3>Our Vision</h3>
+                    <p>To completely rewire the West African automotive supply framework by engineering a direct, tech-driven line straight to original international manufacturing complexes—disrupting inflated middle markets and ensuring absolute part safety.</p>
+                </div>
+                <div class="vision-block">
+                    <h3>Strategic Goals</h3>
+                    <p>To eliminate wrong component diagnostic guesswork through absolute mandatory 17-digit chassis validation, achieving 100% vehicle uptime across client fleets, and offering highly scannable, direct factory-landing pricing indices for long-term trust.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategic Service Channels -->
+        <div class="section-headline">Strategic Portfolios</div>
+        <section class="service-row-layout">
+            <div class="service-row-card">
+                <div class="src-info">
+                    <h3>Precise Car Diagnostics & Repairs</h3>
+                    <p>Advanced electronic network tracing, module coding, and mechatronics infrastructure troubleshooting utilizing dedicated oscilloscope testing frameworks to pinpoint component failures without invasive engine teardowns.</p>
+                </div>
+                <div class="src-metrics">
+                    <div class="metric-badge">Mechatronics Unit</div>
+          <div class="service-row-card">
+                <div class="src-info">
+                    <h3>Company Fleet Sourcing Agreements</h3>
+                    <p>Contractual vehicle upkeep frameworks designed for enterprise operations to eliminate unexpected field failures and maximize operational longevity.</p>
+                </div>
+                <div class="src-metrics">
+                    <div class="metric-badge">B2B Asset Management</div>
+                    <div class="metric-sub">Zero local markup parameters.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Supported Manufacturer Frameworks (With Natural Colors Retained) -->
+        <div class="section-headline">Manufacturer Framework Coverage</div>
+        <section class="brand-showcase">
+            <p>Direct VIN matching and advanced mechanical and electronics validation for various operational vehicle layouts:</p>
+            <div class="brand-logo-matrix">
+                <div class="matrix-item"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/toyota.png" alt="Toyota">TOYOTA</div>
+                <div class="matrix-item"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/lexus.png" alt="Lexus">LEXUS</div>
+                <div class="matrix-item"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/mercedes_benz.png" alt="Mercedes-Benz">MERCEDES</div>
+                <div class="matrix-item"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/honda.png" alt="Honda">HONDA</div>
+                <div class="matrix-item"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/hyundai.png" alt="Hyundai">HYUNDAI</div>
+                <div class="matrix-item"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/kia.png" alt="Kia">KIA</div>
+                <div class="matrix-item"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/ford.png" alt="Ford">FORD</div>
+                <div class="matrix-item"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/nissan.png" alt="Nissan">NISSAN</div>
+                <div class="matrix-item"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/bmw.png" alt="BMW">BMW</div>
+                <div class="matrix-item"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/mitsubishi.png" alt="Mitsubishi">MITSUBISHI</div>
+                <div class="matrix-item"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/land-rover.png" alt="Land Rover">LAND ROVER</div>
+                <div class="matrix-item"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/volkswagen.png" alt="Volkswagen">VOLKSWAGEN</div>
+            </div>
+        </section>
+
+        <!-- Twin Portal: VIN-Lock Sourcing & Help Desk Channels -->
+        <div class="section-headline">Operations & Intake Node</div>
+        <section class="portal-grid-split">
+            
+            <!-- Sourcing & Intake Box -->
+            <div class="portal-wrapper">
+                <form action="mailto:management@servaldynamics.com" method="post" enctype="text/plain">
+                    <div class="input-row dual">
+                        <div class="input-block">
+                            <label for="client-id">Identity / Organization Name</label>
+                            <input type="text" id="client-id" name="Client Name" placeholder="Workshop Name or Fleet Director" required>
+                        </div>
+                        <div class="input-block">
+                            <label for="whatsapp-node">WhatsApp Operational Line</label>
+                            <input type="tel" id="whatsapp-node" name="Secure Contact Line" placeholder="e.g. 08123460171" required>
+                        </div>
+                    </div>
+
+                    <div class="input-row triple">
+                        <div class="input-block">
+                            <label for="chassis-id">Chassis Number / VIN (Mandatory)</label>
+                            <input type="text" id="chassis-id" name="VIN Verification Code" placeholder="17-Digit Alphanumeric Code" style="text-transform: uppercase;" required>
+                        </div>
+                        <div class="input-block">
+                            <label for="vehicle-spec">Platform Make & Year</label>
+                            <input type="text" id="vehicle-spec" name="Vehicle Specification" placeholder="e.g. Lexus ES350 2016" required>
+                        </div>
+                        <div class="input-block">
+                            <label for="logistics-track">Logistics Cargo Channel</label>
+                            <select id="logistics-track" name="Logistics Channel Preference">
+                                <option value="Air Cargo">Express Air Cargo (5–7 Business Days)</option>
+                                <option value="Sea Bulk">Standard Bulk Sea Logistics</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-block">
+                            <label for="component-specs">Technical Specifications & Enquiries</label>
+                            <textarea id="component-specs" name="Technical Requirements Description" rows="4" placeholder="Detail component fault descriptions, requested manufacturer numbers, or general procurement booking enquiries..." required></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-radiant">Initialize Technical Request</button>
+                </form>
+            </div>
+
+            <!-- Instant Help Desk Terminal -->
+            <div class="help-desk-wrapper">
+                <div class="help-desk-info">
+                    <h3>Serval Help Desk</h3>
+                    <p>Direct priority support lines bypassing conventional processing blockages. Connect with our administrative and mechatronics desks immediately.</p>
+                    
+                    <div class="ticket-channel">
+                        <h5>WhatsApp Support Desk</h5>
+                        <p>08123460171</p>
+                    </div>
+
+                    <div class="ticket-channel">
+                        <h5>Direct Call Hotlines</h5>
+                        <p>09138424105</p>
+                    </div>
+
+                    <div class="ticket-channel">
+                        <h5>Regional Response Matrix</h5>
+                        <p>Mon - Sat (8:00 AM - 6:00 PM)</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Trust-Building FAQ Section -->
+        <div class="section-headline">Transparency & Verification (FAQ)</div>
+        <section class="faq-layout">
+            <div class="faq-card">
+                <h4><span>Q:</span> Why is the 17-digit Chassis Number mandatory for all orders?</h4>
+                <p>A: Automotive manufacturers change internal mechatronics and electrical layouts even within the exact same production year. Locking down the 17-digit vehicle identification code allows us to cross-reference directly with international database networks, guaranteeing 100% part accuracy and eliminating expensive return freight delays.</p>
+            </div>
+
+            <div class="faq-card">
+                <h4><span>Q:</span> How do you avoid middleman retail pricing structures?</h4>
+                <p>A: Traditional dealers purchase from multiple layers of domestic distributors. Serval Dynamics functions as an independent direct-to-factory router. We buy parts directly from manufacturing platforms in China, Europe, and the US, bypassing local price inflation.</p>
+            </div>
+
+            <div class="faq-card">
+                <h4><span>Q:</span> What is the operational duration for logistics delivery?</h4>
+                <p>A: We operate two primary routes. Our Express Air Cargo pipeline takes 5 to 7 business days, ideal for urgent mechatronics modules and control blocks. Bulk sea logistics channels are used for volume stock and heavy mechanical hardware arrays.</p>
+            </div>
+
+            <div class="faq-card">
+                <h4><span>Q:</span> Do you offer on-site technical diagnostics across fleets?</h4>
+                <p>A: Yes. For corporate clients and complex diagnostics, we combine advanced digital tracking systems and on-site oscilloscope verification straight at your operational hub, preventing high towing costs and minimizing total vehicle downtime.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Infrastructure Terminal Footer -->
+    <footer>
+        <div class="container footer-columns">
+            <div class="footer-column-block">
+                <h4>Serval Dynamics</h4>
+                <p>Independent global automotive procurement, systemized sourcing and  engineering, and premium enterprise corporate asset distribution infrastructure.</p>
+            </div>
+            <div class="footer-column-block">
+                <h4>Operations Center</h4>
+                <address>
+                    Akpajo Junction,<br>
+                    Eleme Region Hub,<br>
+                    Rivers State, Nigeria.
+                </address>
+            </div>
+            <div class="footer-column-block">
+                <h4>Procurement Metric Policy</h4>
+                <p>Absolute operational transparency. All specialized procurement parameters operate under a fixed, unadjusted 100% markup structure over actual factory landing records.</p>
+            </div>
+        </div>
+        
+        <div class="container footer-base">
+            <div class="copyright-tag">&copy; 2026 Serval Dynamics. High-Performance Sourcing Protocol.</div>
+            <div class="tag-badge" style="margin: 0;">Direct Factory Line</div>
+        </div>
+    </footer>
+
+    <!-- Fixed Mobile Tactical Nodes -->
+    <div class="comm-node-bar">
+        <a href="https://wa.me/2348123460171" class="node-link node-secondary" target="_blank">
+            💬 WHATSAPP DESK
+        </a>
+        <a href="tel:09138424105" class="node-link node-primary">
+            📞 CALL NOW
+        </a>
+    </div>
+
+</body>
+</html>accesskey
