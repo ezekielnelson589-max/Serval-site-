@@ -1,471 +1,460 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serval Dynamics | Auto Sourcing & Mechanics</title>
-    <!-- Google Fonts for a Premium, Minimalist Technical Aesthetic -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Serval Dynamics | Global Auto Sourcing & Mechatronics</title>
+    <!-- Premium Technical Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        /* Global Styles & Spaced Layout Architecture */
+        /* Core Reset & Variable Matrix */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background-color: #0b0f19;
+            background-color: #0a0e17;
             color: #ffffff;
             line-height: 1.6;
-            padding-bottom: 90px; /* Gives room so the fixed bottom desk doesn't cover content */
+            padding-bottom: 100px; /* Safety clearance for floating action zones */
         }
 
-        /* 1. Header Layout - Clean, Single-Line Title Layout */
+        /* Industrial Header */
         header {
-            background-color: #0d1321;
-            padding: 24px 16px;
+            background-color: #0f1524;
+            padding: 20px 16px;
             border-bottom: 2px solid #1e293b;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .brand-name {
-            font-size: 26px;
+        .brand-logo {
+            font-size: 24px;
             font-weight: 900;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         .brand-white { color: #ffffff; }
-        .brand-red { color: #ef4444; }
+        .brand-red { color: #dc2626; }
 
-        /* Main Structural Spacing Layout */
-        .container {
-            padding: 36px 20px;
+        /* Structural Container */
+        .wrapper {
+            padding: 30px 20px;
             max-width: 600px;
             margin: 0 auto;
         }
 
-        /* Spacing out major blocks cleanly */
         section {
-            margin-bottom: 48px;
+            margin-bottom: 45px;
         }
 
-        /* 2. Hero Component */
-        .main-title {
-            font-size: 34px;
+        /* Typography & Headings */
+        .hero-title {
+            font-size: 36px;
             font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 18px;
+            line-height: 1.15;
             text-transform: uppercase;
-        }
-
-        .text-white { color: #ffffff; }
-        .text-blue { color: #3b82f6; }
-        .text-red { color: #ef4444; }
-
-        .hero-description {
-            font-size: 16px;
-            color: #94a3b8;
-            margin-bottom: 28px;
-        }
-
-        /* Premium Media Display Frame */
-        .image-card {
-            width: 100%;
-            border: 2px solid #3b82f6;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 25px rgba(59, 130, 246, 0.15);
-            margin-bottom: 48px;
-        }
-
-        .image-card img {
-            width: 100%;
-            display: block;
-            object-fit: cover;
-        }
-
-        /* Section Header Standard styling */
-        .section-title {
-            font-size: 22px;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            color: #3b82f6;
-            border-left: 4px solid #ef4444;
-            padding-left: 10px;
-            letter-spacing: 0.5px;
-        }
-
-        /* 3. Core Services Blocks */
-        .service-card {
-            background: #111827;
-            border: 1px solid #1f2937;
-            padding: 24px;
-            border-radius: 8px;
-            margin-bottom: 18px;
-        }
-
-        .service-card h3 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #ffffff;
-        }
-
-        .service-card p {
-            font-size: 14px;
-            color: #94a3b8;
-        }
-
-        /* 4. Fleet Support Section */
-        .fleet-banner {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border: 1px dashed #ef4444;
-            padding: 24px;
-            border-radius: 8px;
-        }
-
-        .fleet-banner p {
-            font-size: 15px;
-            color: #cbd5e1;
-        }
-
-        /* 5. Re-Engineered Dual-Action Order Form */
-        .booking-section {
-            background: linear-gradient(180deg, #111827 0%, #0d1321 100%);
-            border: 1px solid #3b82f6;
-            padding: 28px 20px;
-            border-radius: 12px;
-        }
-
-        .booking-section p {
-            font-size: 14px;
-            color: #94a3b8;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
+            letter-spacing: -0.5px;
             margin-bottom: 16px;
         }
 
-        .form-group label {
-            display: block;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 6px;
+        .accent-blue { color: #2563eb; }
+        .accent-red { color: #dc2626; }
+
+        .hero-subtitle {
+            font-size: 15px;
             color: #94a3b8;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .section-heading {
+            font-size: 18px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #2563eb;
+            margin-bottom: 20px;
+            border-left: 4px solid #dc2626;
+            padding-left: 10px;
+        }
+
+        /* Technical Data Cards */
+        .card {
+            background: #111a2e;
+            border: 1px solid #1e293b;
+            border-radius: 8px;
+            padding: 22px;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #ffffff;
+            text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            background: #1f2937;
-            border: 1px solid #374151;
-            border-radius: 6px;
-            color: #ffffff;
+        .card p {
             font-size: 14px;
+            color: #94a3b8;
         }
 
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: #3b82f6;
+        /* Fleet Notice Strip */
+        .fleet-strip {
+            background: linear-gradient(90deg, #1e293b 0%, #111a2e 100%);
+            border-left: 4px solid #2563eb;
+            border-radius: 0 8px 8px 0;
+            padding: 20px;
         }
 
-        /* Action Panel Buttons Layout */
-        .action-panel {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 20px;
+        .fleet-strip p {
+            font-size: 14px;
+            color: #cbd5e1;
         }
 
-        .submit-btn {
+        /* Direct Action Hub */
+        .action-hub {
+            background: #0f1524;
+            border: 1px solid #2563eb;
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        .hub-text {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .hub-btn {
+            display: block;
             width: 100%;
-            border: none;
-            padding: 14px;
-            font-size: 13px;
+            padding: 16px;
+            font-size: 14px;
             font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 1px;
             border-radius: 6px;
-            cursor: pointer;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            text-decoration: none;
             color: #ffffff;
+            margin-bottom: 12px;
+            text-align: center;
         }
 
-        .btn-email { background-color: #ef4444; }
-        .btn-whatsapp { background-color: #0f766e; }
+        .hub-whatsapp { background-color: #0f766e; }
+        .hub-email { background-color: #dc2626; }
+        .hub-btn:last-child { margin-bottom: 0; }
 
-        /* 6. Interactive FAQ Accordion Elements */
-        .faq-item {
-            background-color: #111827;
-            border: 1px solid #1f2937;
+        /* Bulletproof Native FAQ System */
+        details {
+            background-color: #111a2e;
+            border: 1px solid #1e293b;
             border-radius: 6px;
             margin-bottom: 12px;
             overflow: hidden;
         }
 
-        .faq-trigger {
-            width: 100%;
-            background: none;
-            border: none;
-            padding: 16px;
-            text-align: left;
-            color: #ffffff;
+        summary {
+            padding: 18px 16px;
             font-size: 15px;
-            font-weight: 600;
+            font-weight: 700;
+            color: #ffffff;
             cursor: pointer;
+            list-style: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            user-select: none;
         }
 
-        .faq-trigger::after {
+        summary::after {
             content: '+';
-            font-size: 18px;
-            color: #3b82f6;
-            font-weight: bold;
+            color: #2563eb;
+            font-size: 20px;
+            font-weight: 700;
         }
 
-        .faq-item.active .faq-trigger::after {
+        details[open] summary {
+            border-bottom: 1px solid #1e293b;
+            color: #dc2626;
+        }
+
+        details[open] summary::after {
             content: '−';
-            color: #ef4444;
+            color: #dc2626;
         }
 
-        .faq-content {
-            padding: 0 16px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-            color: #94a3b8;
-            font-size: 14px;
-            background-color: #0d1321;
-        }
-
-        .faq-item.active .faq-content {
+        .faq-answer {
             padding: 16px;
-            max-height: 200px; /* Adjust as needed for long text answers */
-            border-top: 1px solid #1f2937;
+            font-size: 14px;
+            color: #cbd5e1;
+            background-color: #0a0e17;
         }
 
-        /* 7. Corporate Infrastructure Footer (Trust Badges Row) */
-        .trust-footer {
+        /* Trust Matrix Footer Grid */
+        .matrix-footer {
             border-top: 1px solid #1e293b;
-            padding-top: 32px;
-            margin-top: 16px;
-            text-align: center;
+            padding-top: 40px;
         }
 
-        .trust-category {
-            margin-bottom: 24px;
+        .matrix-group {
+            margin-bottom: 30px;
         }
 
-        .trust-category h4 {
+        .matrix-group h4 {
             font-size: 11px;
             color: #475569;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             margin-bottom: 12px;
+            font-weight: 700;
         }
 
-        .badge-row {
+        .grid-badges {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
+            gap: 8px;
         }
 
         .badge {
-            background-color: #111827;
-            border: 1px solid #1f2937;
-            color: #94a3b8;
-            padding: 6px 14px;
+            background-color: #111a2e;
+            border: 1px solid #1e293b;
+            color: #cbd5e1;
+            padding: 6px 12px;
             border-radius: 4px;
             font-size: 11px;
             font-weight: 700;
-            letter-spacing: 0.5px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* 8. Floating Bottom Desk Navigation Bar */
-        .bottom-desk {
+        /* Premium Floating & Animated Action Hub */
+        .floating-actions {
             position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 60px;
+            bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+            right: 20px;
+            z-index: 999999;
             display: flex;
-            z-index: 1000;
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.5);
+            flex-direction: column;
+            gap: 14px;
+            align-items: center;
         }
 
-        .desk-btn {
-            flex: 1;
+        /* Core Float Layout Configuration */
+        .float-node {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
             text-decoration: none;
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s ease;
         }
 
-        .whatsapp-desk { background-color: #0f766e; }
-        .call-desk { background-color: #b91c1c; }
+        .float-node:active {
+            transform: scale(0.9);
+        }
 
-        .desk-btn svg {
-            margin-right: 8px;
-            width: 18px;
-            height: 18px;
+        /* WhatsApp Circular Floating Anchor */
+        .float-whatsapp {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #0f766e;
+            color: #ffffff;
+            position: relative;
+            animation: pulse-ring 2s infinite ease-in-out;
+        }
+
+        .float-whatsapp svg {
+            width: 28px;
+            height: 28px;
             fill: currentColor;
+        }
+
+        /* Refined Single Voice Routing Target */
+        .float-voice {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #dc2626;
+            color: #ffffff;
+            animation: float-drift 3s infinite ease-in-out;
+        }
+
+        .float-voice svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        /* High-Performance Hardware Accelerated Keyframe Configurations */
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(15, 118, 110, 0.7), 0 8px 24px rgba(0, 0, 0, 0.5);
+            }
+            70% {
+                transform: scale(1.04);
+                box-shadow: 0 0 0 12px rgba(15, 118, 110, 0), 0 8px 24px rgba(0, 0, 0, 0.5);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(15, 118, 110, 0), 0 8px 24px rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        @keyframes float-drift {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Block -->
+    <!-- Branding Header Node -->
     <header>
-        <div class="brand-name">
-            <span class="brand-white">Serval</span> <span class="brand-red">Dynamics</span>
+        <div class="brand-logo">
+            <span class="brand-white">Serval</span><span class="brand-red">Dynamics</span>
         </div>
     </header>
 
-    <div class="container">
+    <div class="wrapper">
         
-        <!-- Hero Core Section -->
-        <section class="hero">
-            <h1 class="main-title">
-                <span class="text-white">Independent</span><br>
-                <span class="text-blue">Auto Tech</span><br>
-                <span class="text-white">Sourcing &</span><br>
-                <span class="text-red">Mechanics</span>
+        <!-- Hero Introduction Statement -->
+        <section>
+            <h1 class="hero-title">
+                Global Auto<br>
+                <span class="accent-blue">Sourcing</span> &<br>
+                <span class="accent-red">Mechatronics</span>
             </h1>
-            <p class="hero-description">
-                We create clear, fast supply lines for quality car parts from major global hubs. Your parts arrive from China, North America, and Europe directly to local workshops, sellers, and business teams.
+            <p class="hero-subtitle">
+                We bridge the critical gap between international manufacturing lines and localized operations. Managing dedicated wholesale pipelines to deliver factory-direct automotive electronics, heavy hardware components, and advanced digital software configurations.
             </p>
         </section>
 
-        <!-- Media Display Node Frame -->
-        <div class="image-card">
-            <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=80" alt="Premium Auto Electronics Workspace">
-        </div>
-
-        <!-- Services Breakdown Section -->
+        <!-- Technical Capabilities Division -->
         <section>
-            <h2 class="section-title">What We Do</h2>
+            <h2 class="section-heading">Operational Matrix</h2>
             
-            <div class="service-card">
-                <h3>Direct Parts Sourcing</h3>
-                <p>We source authentic vehicle electronics, sensors, and upgrades directly from overseas factories and top distributors to bypass retail markups.</p>
+            <div class="card">
+                <h3>Direct Factory Sourcing</h3>
+                <p>Bypassing commercial markup channels to secure verified OEM modules, sensor infrastructure, and custom technical components straight from verified facilities in China, Germany, and the United States.</p>
             </div>
 
-            <div class="service-card">
-                <h3>Advanced Diagnostics</h3>
-                <p>High-end electronic troubleshooting, vehicle module programming, and precise software tuning for modern performance vehicles.</p>
+            <div class="card">
+                <h3>Advanced Mechatronics</h3>
+                <p>Specialized hardware diagnostics, electrical architecture restructuring, module flashing, and precision software configuration calibrations for modern vehicle platforms.</p>
             </div>
         </section>
 
-        <!-- Fleet Support Section Module -->
+        <!-- B2B Enterprise / Fleet Focus Node -->
         <section>
-            <h2 class="section-title">Fleet Support</h2>
-            <div class="fleet-banner">
+            <h2 class="section-heading">Commercial Fleet Logistics</h2>
+            <div class="fleet-strip">
                 <p>
-                    We help transport companies, corporate fleets, and car dealerships keep their vehicles on the road. If you manage multiple cars, we source your replacement modules in bulk and offer priority troubleshooting to minimize your operational downtime.
+                    Engineered directly for transport corporations, heavy logistics operations, and scaling automotive dealerships. We stabilize your hardware procurement by deploying bulk wholesale supply routes directly from global production plants, drastically slashing mechanical downtime.
                 </p>
             </div>
         </section>
 
-        <!-- Interactive Custom Order & Technical Request Intake Portal -->
-        <section class="booking-section">
-            <h2 class="section-title" style="color: #ef4444; border-left-color: #3b82f6;">Order & Support Desk</h2>
-            <p>Need to source a specific component or book a diagnostic slot? Submit your request parameters below and choose your route.</p>
-            
-            <form id="orderForm">
-                <div class="form-group">
-                    <label>Your Name / Workshop Name</label>
-                    <input type="text" id="clientName" placeholder="e.g. John Doe" required>
-                </div>
-                <div class="form-group">
-                    <label>Vehicle Model / Part Needed</label>
-                    <input type="text" id="partInfo" placeholder="e.g. Toyota Camry 2020 ECU Module" required>
-                </div>
-                <div class="form-group">
-                    <label>Detailed Request Parameters</label>
-                    <textarea id="requestDetails" rows="4" placeholder="Describe the specific parts you want to source or the technical issue you want solved..." required></textarea>
-                </div>
-
-                <!-- Dual-Action Node Panel -->
-                <div class="action-panel">
-                    <button type="button" onclick="submitViaEmail()" class="submit-btn btn-email">
-                        Submit Order via Email Desk
-                    </button>
-                    <button type="button" onclick="submitViaWhatsApp()" class="submit-btn btn-whatsapp">
-                        Submit Order via WhatsApp Desk
-                    </button>
-                </div>
-            </form>
-        </section>
-
-        <!-- Interactive FAQ Accordion Section -->
+        <!-- Direct Instant Contact Action Hub -->
         <section>
-            <h2 class="section-title">Common Questions</h2>
-            
-            <div class="faq-item">
-                <button class="faq-trigger" onclick="toggleFaq(this)">How long does shipping take?</button>
-                <div class="faq-content">
-                    Express factory orders arrive at our workbench in 3 to 5 business days. Standard bulk parts delivery and ocean consolidation packages take 2 to 3 weeks.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-trigger" onclick="toggleFaq(this)">Are your parts genuine?</button>
-                <div class="faq-content">
-                    Yes, 100%. We source components directly from authorized global distributors and production plants, entirely bypassing standard retail markups.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-trigger" onclick="toggleFaq(this)">Can you program modules remotely?</button>
-                <div class="faq-content">
-                    Yes. We handle specialized module programming, electronic system coding, and remote digital diagnostics setup for advanced vehicle configurations.
-                </div>
+            <h2 class="section-heading">Communications Portal</h2>
+            <div class="action-hub">
+                <p class="hub-text">Initialize your parts supply order or book a complex software diagnostics session immediately via our direct routing channels:</p>
+                <a href="https://wa.me/2348123460171" class="hub-btn hub-whatsapp" target="_blank">Connect via WhatsApp Desk</a>
+                <a href="mailto:servaldynamics@gmail.com?subject=B2B%20Sourcing%20Inquiry" class="hub-btn hub-email">Submit Specifications Email</a>
             </div>
         </section>
 
-        <!-- 7. Corporate Infrastructure Footprint (Trust Badges Container) -->
-        <footer class="trust-footer">
+        <!-- Unrivaled Native FAQ Matrix -->
+        <section>
+            <h2 class="section-heading">Technical FAQ</h2>
             
-            <div class="trust-category">
-                <h4>Factory Supplies & Distributors</h4>
-                <div class="badge-row">
-                    <div class="badge">Bosch OEM</div>
+            <details>
+                <summary>How long does international transit require?</summary>
+                <div class="faq-answer">
+                    Express factory-direct air shipments from international production corridors drop directly at our diagnostic bench within 3 to 5 business days. Consolidated industrial cargo shipments scale over 2 to 3 weeks.
+                </div>
+            </details>
+
+            <details>
+                <summary>Are components verified OEM genuine?</summary>
+                <div class="faq-answer">
+                    Absolutely. Every component in our tracking system is sourced explicitly from authorized Tier-1 international distributors or directly off production lines in global technical manufacturing corridors.
+                </div>
+            </details>
+
+            <details>
+                <summary>Do you execute remote configuration work?</summary>
+                <div class="faq-answer">
+                    Yes. We run specialized online access arrays to perform remote control module programming, software updates, and advanced system adaptation adjustments across modern networks.
+                </div>
+            </details>
+        </section>
+
+        <!-- Extensive Global Corporate Infrastructure Matrix -->
+        <footer class="matrix-footer">
+            
+            <div class="matrix-group">
+                <h4>Extensive Chinese Logistics & Sourcing Infrastructure</h4>
+                <div class="grid-badges">
+                    <div class="badge">Guangdong Electronics Hub</div>
+                    <div class="badge">Zhejiang Sourcing Line</div>
+                    <div class="badge">Shenzhen Diagnostic Tools</div>
+                    <div class="badge">Yiwu Wholesale Express</div>
+                    <div class="badge">Direct Factory Freight</div>
+                </div>
+            </div>
+
+            <div class="matrix-group">
+                <h4>American & European Tier-1 OEM Pipelines</h4>
+                <div class="grid-badges">
+                    <div class="badge">Bosch Germany</div>
                     <div class="badge">Denso Global</div>
+                    <div class="badge">Delphi Tech USA</div>
+                    <div class="badge">Magneti Marelli</div>
+                    <div class="badge">Continental Auto</div>
                     <div class="badge">SSF Imported Parts</div>
+                    <div class="badge">Meyer Distributing</div>
                 </div>
             </div>
 
-            <div class="trust-category">
-                <h4>Express Air Lines</h4>
-                <div class="badge-row">
-                    <div class="badge">DHL Express</div>
-                    <div class="badge">FedEx Priority</div>
+            <div class="matrix-group">
+                <h4>Global Air Freight Channels</h4>
+                <div class="grid-badges">
+                    <div class="badge">DHL Express Priority</div>
+                    <div class="badge">FedEx International</div>
+                    <div class="badge">UPS Worldwide Cargo</div>
+                    <div class="badge">DB Schenker Network</div>
                 </div>
             </div>
 
-            <div class="trust-category">
-                <h4>Logistics & Clearance Lines</h4>
-                <div class="badge-row">
+            <div class="matrix-group">
+                <h4>Domestic Clearing & Transit Lines</h4>
+                <div class="grid-badges">
                     <div class="badge">GIG Logistics</div>
                     <div class="badge">Heroshe Cargo</div>
+                    <div class="badge">ValueJet Cargo</div>
                 </div>
             </div>
 
@@ -473,74 +462,20 @@
 
     </div>
 
-    <!-- Communication Fixed Floating Bottom Desk Bar -->
-    <div class="bottom-desk">
-        <!-- ACTION: Replace 2348000000000 with your active WhatsApp phone number -->
-        <a href="https://wa.me/2348000000000?text=Hello%20Serval%20Dynamics,%20I%20want%20to%20inquire%20about%20your%20services." class="desk-btn whatsapp-desk" target="_blank">
-            <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 11.93 0c3.167.001 6.145 1.233 8.384 3.473 2.239 2.24 3.471 5.217 3.47 8.384-.003 6.582-5.338 11.93-11.87 11.93-2.005-.001-3.973-.51-5.713-1.477L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.742 1.451 5.4 0 9.794-4.394 9.796-9.793 0-2.614-1.017-5.072-2.865-6.922-1.848-1.85-4.306-2.866-6.92-2.867-5.4 0-9.793 4.393-9.795 9.792-.001 1.748.48 3.454 1.396 4.969l-.999 3.65 3.744-.982zM17.433 14.71c-.3-.149-1.774-.875-2.046-.974-.272-.1-.471-.149-.669.149-.198.3-.769.974-.942 1.173-.173.198-.347.223-.647.074-.3-.149-1.27-.468-2.42-1.494-.894-.797-1.498-1.782-1.673-2.081-.175-.3-.018-.462.13-.61.135-.133.3-.347.45-.52.15-.174.2-.299.3-.499.1-.2.05-.375-.025-.524-.075-.15-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.774-.726 2.022-1.429.247-.704.247-1.306.173-1.43-.073-.124-.272-.198-.57-.347z"/></svg>
-            WhatsApp Desk
-        </a>
-        <!-- ACTION: Replace +2348000000000 with your actual telephone layout line -->
-        <a href="tel:+2348000000000" class="desk-btn call-desk">
+    <!-- Anchored Floating Action Infrastructure Zone -->
+    <div class="floating-actions">
+        
+        <!-- Animated Voice Control Target (Single Line Call Button) -->
+        <a href="tel:+2348123460171" class="float-node float-voice" aria-label="Call Operational Desk">
             <svg viewBox="0 0 24 24"><path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.714-7.82-4.484-8.917.076-.037 2.031-1.007 2.031-1.007l-3.516-6.791s-1.966.974-2.054 1.017c-4.423 2.156-4.4 12.011 3.404 21.057 7.158 8.297 15.143 5.416 16.21 4.881.087-.043 2.058-1.026 2.058-1.026zm-4.426-5.464l1.589 3.069c-.495.223-1.808.779-3.626-.067-5.59-2.597-8.384-8.625-5.066-12.464.912-1.056 2.112-1.491 2.891-1.121l1.584 3.061-1.166.566c-1.378.668-.905 3.242.348 5.656 1.251 2.41 3.491 3.291 4.28 2.744z"/></svg>
-            Call Now
         </a>
+
+        <!-- Pulsating WhatsApp Floating Circular Anchor -->
+        <a href="https://wa.me/2348123460171" class="float-node float-whatsapp" target="_blank" aria-label="Open WhatsApp Desk">
+            <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 11.93 0c3.167.001 6.145 1.233 8.384 3.473 2.239 2.24 3.471 5.217 3.47 8.384-.003 6.582-5.338 11.93-11.87 11.93-2.005-.001-3.973-.51-5.713-1.477L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.742 1.451 5.4 0 9.794-4.394 9.796-9.793 0-2.614-1.017-5.072-2.865-6.922-1.848-1.85-4.306-2.866-6.92-2.867-5.4 0-9.793 4.393-9.795 9.792-.001 1.748.48 3.454 1.396 4.969l-.999 3.65 3.744-.982zM17.433 14.71c-.3-.149-1.774-.875-2.046-.974-.272-.1-.471-.149-.669.149-.198.3-.769.974-.942 1.173-.173.198-.347.223-.647.074-.3-.149-1.27-.468-2.42-1.494-.894-.797-1.498-1.782-1.673-2.081-.175-.3-.018-.462.13-.61.135-.133.3-.347.45-.52.15-.174.2-.299.3-.499.1-.2.05-.375-.025-.524-.075-.15-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.774-.726 2.022-1.429.247-.704.247-1.306.173-1.43-.073-.124-.272-.198-.57-.347z"/></svg>
+        </a>
+
     </div>
 
-    <!-- Smart Script Engine for FAQ Accordion & Dual Contact Forms Routing -->
-    <script>
-        // FAQ Accordion Mechanics Function
-        function toggleFaq(button) {
-            const item = button.parentElement;
-            item.classList.toggle('active');
-        }
-
-        // Data capture function helper
-        function getFormData() {
-            const name = document.getElementById('clientName').value.trim();
-            const part = document.getElementById('partInfo').value.trim();
-            const details = document.getElementById('requestDetails').value.trim();
-            
-            if(!name || !part || !details) {
-                alert("Please fill in all inputs before initializing your technical request.");
-                return null;
-            }
-            return { name, part, details };
-        }
-
-        // Email Action Handler
-        function submitViaEmail() {
-            const data = getFormData();
-            if(!data) return;
-
-            // ACTION: Replace with your real business email address
-            const targetEmail = "servaldynamics@gmail.com";
-            const subject = encodeURIComponent("Technical Request - " + data.name);
-            const body = encodeURIComponent(
-                "Client Name: " + data.name + "\n" +
-                "Vehicle/Part Needed: " + data.part + "\n\n" +
-                "Request Details:\n" + data.details
-            );
-
-            window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
-        }
-
-        // WhatsApp Action Handler
-        function submitViaWhatsApp() {
-            const data = getFormData();
-            if(!data) return;
-
-            // ACTION: Replace +2348123460171 with your active WhatsApp phone number
-            const phoneNumber = "+2348123460171";
-            const textMessage = encodeURIComponent(
-                "⚡ *SERVAL DYNAMICS REQUEST*\n\n" +
-                "*Name:* " + data.name + "\n" +
-                "*Vehicle/Part:* " + data.part + "\n\n" +
-                "*Details:* " + data.details
-            );
-
-            window.open(Message Serval Dynamics on WhatsApp. https://wa.me/2348123460171}?text=${textMessage}`, '_blank');
-        }
-    </script>
 </body>
 </html>
